@@ -22,7 +22,7 @@ def client(port):
         host = input('Input the host IP address: ')
         if host == '':
             break
-        hosts.append(host)
+        hosts.append((host, port))
         message = input('Input lowercase sentence:' )
         data = message.encode('ascii')
         s.sendto(data, (host, port))
