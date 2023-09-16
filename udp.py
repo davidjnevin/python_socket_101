@@ -16,14 +16,16 @@ def server(port):
         s.sendto(data, clientAddress)
 
 def client(port):
+    host = '127.0.0.1'
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect((host, port))
     message = input('Input lowercase sentence:' )
     data = message.encode('ascii')
-    s.sendto(data, ('127.0.0.1', port))
+    s.send(data)
     print(f'The OS assigned the address {s.getsockname()} to me')
-    data, address = s.recvfrom(MAX_SIZE_BYTES)
+    data = s.recv(MAX_SIZE_BYTES)
     text = data.decode('ascii')
-    print(f'The server {address} replied with {text!r}')
+    print(f'The server replied with {text!r}')
 
 if __name__ == '__main__':
     funcs = {'client': client, 'server': server}
