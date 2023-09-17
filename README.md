@@ -32,3 +32,11 @@ The client
  * Sends the message to the server
  * Receives data from the server
  * Displays the return message from the server
+
+
+## TCP Client Server
+
+Using TCP connect(), sendall() and recvall()
+
+
+source : An Introduction to Socket Programming with Python from [Network Fundamentals](https://www.educative.io/module/network-fundamentals)
